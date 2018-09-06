@@ -3,7 +3,7 @@
 SDL_Window* g_pWindow = 0;
 SDL_Renderer* g_pRenderer = 0;
 
-SDL_Event g_event;
+SDL_Event g_Event;
 
 int g_RectPosX = 0;
 int g_RectPosY = 0;
@@ -43,7 +43,7 @@ void Update()
 {
 	SDL_SetRenderDrawColor(g_pRenderer, 0, 0, 0, 255);
 	SDL_RenderClear(g_pRenderer);
-	if (SDL_PollEvent(&g_event))
+	if (SDL_PollEvent(&g_Event))
 	{
 		if (g_event.key.keysym.sym == SDLK_UP)
 		{
