@@ -45,23 +45,23 @@ void Update()
 	SDL_RenderClear(g_pRenderer);
 	if (SDL_PollEvent(&g_Event))
 	{
-		if (g_event.key.keysym.sym == SDLK_UP)
+		if (g_Event.key.keysym.sym == SDLK_UP)
 		{
 			g_RectPosY -= 3;
 		}
-		if (g_event.key.keysym.sym == SDLK_DOWN)
+		if (g_Event.key.keysym.sym == SDLK_DOWN)
 		{
 			g_RectPosY += 3;
 		}
-		if (g_event.key.keysym.sym == SDLK_LEFT)
+		if (g_Event.key.keysym.sym == SDLK_LEFT)
 		{
 			g_RectPosX -= 3;
 		}
-		if (g_event.key.keysym.sym == SDLK_RIGHT)
+		if (g_Event.key.keysym.sym == SDLK_RIGHT)
 		{
 			g_RectPosX += 3;
 		}
-		if (g_event.key.keysym.sym == SDLK_ESCAPE)
+		if (g_Event.key.keysym.sym == SDLK_ESCAPE)
 		{
 			SDL_Quit();
 		}
