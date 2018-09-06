@@ -5,6 +5,10 @@ SDL_Renderer* g_pRenderer = 0;
 
 SDL_Event g_event;
 
+int g_RectPosX = 0;
+int g_RectPosY = 0;
+void Update();
+
 int main(int argc, char* args[])
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) >= 0)
@@ -23,44 +27,9 @@ int main(int argc, char* args[])
 			return 1;
 		}
 
-
-		int rectPosX = 0;
-		int rectPosY = 0;
-
 		while (1)
 		{
-			SDL_SetRenderDrawColor(g_pRenderer, 0, 0, 0, 255);
-			SDL_RenderClear(g_pRenderer);
-			if (SDL_PollEvent(&g_event))
-			{
-				if (g_event.key.keysym.sym == SDLK_UP)
-				{
-					rectPosY -= 3;
-				}
-				if (g_event.key.keysym.sym == SDLK_DOWN)
-				{
-					rectPosY += 3;
-				}
-				if (g_event.key.keysym.sym == SDLK_LEFT)
-				{
-					rectPosX -= 3;
-				}
-				if (g_event.key.keysym.sym == SDLK_RIGHT)
-				{
-					rectPosX += 3;
-				}
-				if (g_event.key.keysym.sym == SDLK_ESCAPE)
-				{
-					SDL_Quit();
-				}
-			}
-
-			SDL_SetRenderDrawColor(g_pRenderer, 255, 255, 255, 255);
-			SDL_Rect rect = { rectPosX,rectPosY,50,50 };
-			SDL_RenderDrawRect(g_pRenderer, &rect);
-
-
-			SDL_RenderPresent(g_pRenderer);
+			Update();			
 		}
 		
 		SDL_Delay(1000);
@@ -68,4 +37,40 @@ int main(int argc, char* args[])
 
 		return 0;
 	}
+}
+
+void Update()
+{
+	SDL_SetRenderDrawColor(g_pRenderer, 0, 0, 0, 255);
+	SDL_RenderClear(g_pRenderer);
+	if (SDL_PollEvent(&g_event))
+	{
+		if (g_event.key.keysym.sym == SDLK_UP)
+		{
+			g_RectPosY -= 3;
+		}
+		if (g_event.key.keysym.sym == SDLK_DOWN)
+		{
+			g_RectPosY += 3;
+		}
+		if (g_event.key.keysym.sym == SDLK_LEFT)
+		{
+			g_RectPosX -= 3;
+		}
+		if (g_event.key.keysym.sym == SDLK_RIGHT)
+		{
+			g_RectPosX += 3;
+		}
+		if (g_event.key.keysym.sym == SDLK_ESCAPE)
+		{
+			SDL_Quit();
+		}
+	}
+
+	SDL_SetRenderDrawColor(g_pRenderer, 255, 255, 255, 255);
+	SDL_Rect rect = { g_RectPosX,g_RectPosY,50,50 };
+	SDL_RenderDrawRect(g_pRenderer, &rect);
+
+
+	SDL_RenderPresent(g_pRenderer);
 }
