@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include "Game.h"
 
@@ -6,7 +7,7 @@ bool Game::init(const char * title, int xpos, int ypos, int width, int height, b
 	if (SDL_Init(SDL_INIT_EVERYTHING) >= 0)
 	{
 		m_pWindow = SDL_CreateWindow(title,
-			xpos, ypos,
+			xpos,ypos,
 			width, height, SDL_WINDOW_SHOWN && fullscreen);
 	}
 
@@ -20,13 +21,29 @@ bool Game::init(const char * title, int xpos, int ypos, int width, int height, b
 		return false;
 	}
 
+	SDL_Surface* pTempSurface = SDL_LoadBMP("assets/rider.bmp");
+	m_pTexture = SDL_CreateTextureFromSurface(m_pRenderer,
+		pTempSurface);
+
+	SDL_FreeSurface(pTempSurface);
+
+	SDL_QueryTexture(m_pTexture, NULL, NULL,
+		&m_sourceRectangle.w, &m_sourceRectangle.h);
+
 	m_bRunning = true;
 	return true;
 }
 
 void Game::render()
 {
+	m_destnationRectangle.x = m_sourceRectangle.x = 0;
+	m_destnationRectangle.y = m_sourceRectangle.y = 0;
+	m_destnationRectangle.w = m_sourceRectangle.w;
+	m_destnationRectangle.h = m_sourceRectangle.h;
+
 	SDL_RenderClear(m_pRenderer);
+	SDL_RenderCopy(m_pRenderer, m_pTexture,
+		&m_sourceRectangle, &m_destnationRectangle);
 	SDL_RenderPresent(m_pRenderer);
 }
 
