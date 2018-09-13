@@ -16,8 +16,11 @@ bool Game::init(const char * title, int xpos, int ypos, int width, int height, b
 	}
 	else
 	{
+		m_bRunning = false;
 		return false;
 	}
+
+	m_bRunning = true;
 	return true;
 }
 
