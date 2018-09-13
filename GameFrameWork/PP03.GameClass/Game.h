@@ -9,6 +9,10 @@ private:
 	SDL_Renderer* m_pRenderer;
 	bool m_bRunning;
 
+	SDL_Texture* m_pTexture;
+	SDL_Rect m_sourceRectangle;
+	SDL_Rect m_destnationRectangle;
+
 public:
 	Game() {}
 	~Game() {}
