@@ -87,6 +87,7 @@ void D3Render::DrawPolygon(SDL_Renderer* pRender,Vec2 * p, Color color, float b)
 float D3Render::Brightness(Vec3 nomalVec)
 {
 	Vec3 lightDir = { 1,1,1 };
+	lightDir.Normalize();
 	Vec3 a = nomalVec + lightDir;
 	float s = sqrt(a.x*a.x + a.y*a.y + a.z*a.z);
 	s = 1 - s / 5;

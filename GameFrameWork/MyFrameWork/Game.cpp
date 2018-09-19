@@ -56,9 +56,9 @@ void Game::Start()
 {
 	cam = new Camera(screenSizeW, screenSizeH, screenSizeH / 2);
 	
-	cube.SetCube(Vec3(25,25,25),Vec3(50,50,50),255,0,0);
+	cube.SetCube(Vec3(25,25,25),Vec3(50,50,50),255,255,255);
 	object.model = &cube;
-	object.pos.z = -screenSizeW;
+	object.pos.z = -150;
 }
 
 void Game::HandleEvents()
