@@ -55,6 +55,10 @@ void Game::Run()
 void Game::Start()
 {
 	cam = new Camera(screenSizeW, screenSizeH, screenSizeH / 2);
+	
+	cube.SetCube(Vec3(25,25,25),Vec3(50,50,50),255,0,0);
+	object.model = &cube;
+	object.pos.z = -screenSizeW;
 }
 
 void Game::HandleEvents()
@@ -63,8 +67,6 @@ void Game::HandleEvents()
 	Vec3 x = { 5,0,0 };
 	Vec3 y = { 0,5,0 };
 	Vec3 z = { 0,0,5 };
-
-
 
 	if (SDL_PollEvent(&event))
 	{
@@ -130,7 +132,9 @@ void Game::HandleEvents()
 
 void Game::Update()
 {
-	 
+	object.angle.x += 0.001f;
+	object.angle.y += 0.001f;
+	object.angle.z += 0.001f;
 }
 
 void Game::LateUpdate()
@@ -142,16 +146,19 @@ void Game::Render()
 {
 	SDL_SetRenderDrawColor(m_pRenderer, 255, 255, 255, 255);
 	SDL_RenderClear(m_pRenderer);
+	SDL_SetRenderDrawColor(m_pRenderer, 0, 0, 0, 255);
+	
+	D3Render::GetInst()->RenderD3Object(m_pRenderer,*cam, object);
 
-	float x = 50.0f;
+	/*float x = 50.0f;
 	float y = 50.0f;
 	float z = 50.0f;
 	Vec3 vertex[8] =
-{   { 0 + 0.f,0,0 + screenSizeW/4 },
-	{ x + 0.f,0,0 + screenSizeW/4 },
-	{ 0 + 0.f,y,0 + screenSizeW/4 },
+{   { 0 + 0.f,0,0.f + screenSizeW/4 },
+	{ x + 0.f,0,0.f + screenSizeW/4 },
+	{ 0 + 0.f,y,0.f + screenSizeW/4 },
 	{ 0 + 0.f,0,z + screenSizeW/4 },
-	{ x + 0.f,y,0 + screenSizeW/4 },
+	{ x + 0.f,y,0.f + screenSizeW/4 },
 	{ 0 + 0.f,y,z + screenSizeW/4 },
 	{ x + 0.f,0,z + screenSizeW/4 },
 	{ x + 0.f,y,z + screenSizeW/4 } };
@@ -175,7 +182,7 @@ void Game::Render()
 	SDL_RenderDrawLine(m_pRenderer, p[3].x, p[3].y, p[6].x, p[6].y);
 	SDL_RenderDrawLine(m_pRenderer, p[4].x, p[4].y, p[7].x, p[7].y);
 	SDL_RenderDrawLine(m_pRenderer, p[5].x, p[5].y, p[7].x, p[7].y);
-	SDL_RenderDrawLine(m_pRenderer, p[6].x, p[6].y, p[7].x, p[7].y);
+	SDL_RenderDrawLine(m_pRenderer, p[6].x, p[6].y, p[7].x, p[7].y);*/
 
 	SDL_RenderPresent(m_pRenderer);
 }
@@ -185,5 +192,6 @@ void Game::Clean()
 	delete cam;
 	SDL_DestroyWindow(m_pWindow);
 	SDL_DestroyRenderer(m_pRenderer);
+	D3Render::DeleteSingle();
 	SDL_Quit();
 }

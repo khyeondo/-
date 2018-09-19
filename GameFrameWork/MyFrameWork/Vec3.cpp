@@ -5,40 +5,32 @@ float Vec3::Length()
 	return sqrt(powf(x, 2.f) + powf(y, 2.f) + powf(z, 2.f));
 }
 
-Vec3 Vec3::Normalize()
+void Vec3::Normalize()
 {
-	Vec3 temp;
 	float f = this->Length();
-	temp.x = x / f; temp.y = y / f; temp.z = z / f;
-	return temp;
+	x /= f; y /= f; z /= f;
 }
 
-Vec3 Vec3::RotateX(float angle)
+void Vec3::RotateX(float angle)
 {
-	Vec3 temp;
-	temp.x = x;
-	temp.y = y * cosf(angle) + z * sinf(angle);
-	temp.z = z * cosf(angle) - y * sinf(angle);
-
-	return temp;
+	float tempY = y;
+	float tempZ = z;
+	y = tempY * cosf(angle) + tempZ * sinf(angle);
+	z = tempZ * cosf(angle) - tempY * sinf(angle);
 }
 
-Vec3 Vec3::RotateY(float angle)
+void Vec3::RotateY(float angle)
 {
-	Vec3 temp;
-	temp.x = x * cosf(angle) + z * sinf(angle);
-	temp.y = y;
-	temp.z = z * cosf(angle) - x * sinf(angle);
-
-	return temp;
+	float tempX = x;
+	float tempZ = z;
+	x = tempX * cosf(angle) + tempZ * sinf(angle);
+	z = tempZ * cosf(angle) - tempX * sinf(angle);
 }
 
-Vec3 Vec3::RotateZ(float angle)
+void Vec3::RotateZ(float angle)
 {
-	Vec3 temp;
-	temp.x = x * cosf(angle) + y * sinf(angle);
-	temp.y = y * cosf(angle) - x * sinf(angle);
-	temp.z = z;
-
-	return temp;
+	float tempX = x;
+	float tempY = y;
+	x = tempX * cosf(angle) + tempY * sinf(angle);
+	y = tempY * cosf(angle) - tempX * sinf(angle);
 }

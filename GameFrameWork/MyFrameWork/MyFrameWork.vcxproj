@@ -130,7 +130,8 @@
     <ClCompile Include="SDL2_rotozoom.c" />
     <ClCompile Include="Vec3.cpp" />
     <ClCompile Include="Polygon.cpp" />
-    <ClCompile Include="Cube.cpp" />
+    <ClCompile Include="D3Model.cpp" />
+    <ClCompile Include="D3Object.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h" />
@@ -143,7 +144,8 @@
     <ClInclude Include="SDL2_rotozoom.h" />
     <ClInclude Include="Vec3.h" />
     <ClInclude Include="Polygon.h" />
-    <ClInclude Include="Cube.h" />
+    <ClInclude Include="D3Model.h" />
+    <ClInclude Include="D3Object.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

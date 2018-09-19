@@ -8,6 +8,14 @@ public:
 	float x, y, z;
 
 public:
+	Vec3() {}
+	Vec3(float x, float y, float z)
+	{
+		this->x = x;
+		this->y = y;
+		this->z = z;
+	}
+
 	Vec3 operator + (Vec3 vec)
 	{
 		Vec3 temp;
@@ -61,12 +69,12 @@ public:
 	}
 
 	float Length();	
-	Vec3 Normalize();
+	void Normalize();
 	
 	//축회전
-	Vec3 RotateX(float angle);
-	Vec3 RotateY(float angle);
-	Vec3 RotateZ(float angle);
+	void RotateX(float angle);
+	void RotateY(float angle);
+	void RotateZ(float angle);
 
 	//외적
 	static Vec3 Cross(Vec3 a, Vec3 b)

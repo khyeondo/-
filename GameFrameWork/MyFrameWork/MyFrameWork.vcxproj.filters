@@ -28,17 +28,17 @@
     <Filter Include="02.3DGraphics\04.Polygon">
       <UniqueIdentifier>{b0fd7e4a-6483-4b33-990c-f326a622fc5b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일\SDL2_gfxPrimitives">
-      <UniqueIdentifier>{b2154320-079f-4021-a349-e45f56d2d83c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="02.3DGraphics\01.3DRender">
       <UniqueIdentifier>{9d7bd1b7-bb33-4de8-8e35-57d21ee531c7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02.3DGraphics\06.Cube">
+    <Filter Include="SDL2_gfxPrimitives">
+      <UniqueIdentifier>{b2154320-079f-4021-a349-e45f56d2d83c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.3DGraphics\05.D3Model">
       <UniqueIdentifier>{a742841a-7530-4307-8519-a0a4c35cb7ad}</UniqueIdentifier>
     </Filter>
-    <Filter Include="05.3DObject">
-      <UniqueIdentifier>{450b5b8d-93d1-4381-a3b7-37862ab20dff}</UniqueIdentifier>
+    <Filter Include="02.3DGraphics\06.D3Object">
+      <UniqueIdentifier>{acd87cd1-074a-45e0-b444-b6f1329b6387}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -61,13 +61,16 @@
       <Filter>02.3DGraphics\04.Polygon</Filter>
     </ClCompile>
     <ClCompile Include="SDL2_gfxPrimitives.c">
-      <Filter>헤더 파일\SDL2_gfxPrimitives</Filter>
+      <Filter>SDL2_gfxPrimitives</Filter>
     </ClCompile>
     <ClCompile Include="SDL2_rotozoom.c">
-      <Filter>헤더 파일\SDL2_gfxPrimitives</Filter>
+      <Filter>SDL2_gfxPrimitives</Filter>
     </ClCompile>
-    <ClCompile Include="Cube.cpp">
-      <Filter>02.3DGraphics\06.Cube</Filter>
+    <ClCompile Include="D3Model.cpp">
+      <Filter>02.3DGraphics\05.D3Model</Filter>
+    </ClCompile>
+    <ClCompile Include="D3Object.cpp">
+      <Filter>02.3DGraphics\06.D3Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -93,16 +96,19 @@
       <Filter>02.3DGraphics\04.Polygon</Filter>
     </ClInclude>
     <ClInclude Include="SDL2_gfxPrimitives.h">
-      <Filter>헤더 파일\SDL2_gfxPrimitives</Filter>
+      <Filter>SDL2_gfxPrimitives</Filter>
     </ClInclude>
     <ClInclude Include="SDL2_rotozoom.h">
-      <Filter>헤더 파일\SDL2_gfxPrimitives</Filter>
+      <Filter>SDL2_gfxPrimitives</Filter>
     </ClInclude>
     <ClInclude Include="SDL2_gfxPrimitives_font.h">
-      <Filter>헤더 파일\SDL2_gfxPrimitives</Filter>
+      <Filter>SDL2_gfxPrimitives</Filter>
     </ClInclude>
-    <ClInclude Include="Cube.h">
-      <Filter>02.3DGraphics\06.Cube</Filter>
+    <ClInclude Include="D3Model.h">
+      <Filter>02.3DGraphics\05.D3Model</Filter>
+    </ClInclude>
+    <ClInclude Include="D3Object.h">
+      <Filter>02.3DGraphics\06.D3Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

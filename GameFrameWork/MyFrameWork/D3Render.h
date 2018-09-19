@@ -1,7 +1,8 @@
 #pragma once
 
-#include "Camera.h"
 #include "header.h"
+#include "Camera.h"
+#include "D3Object.h"
 
 class D3Render
 {
@@ -20,10 +21,25 @@ public:
 		m_pinst = 0;
 	}
 #pragma endregion
+
+public:
+	RenderFlage setting;
+
 public:
 	D3Render() {}
 	~D3Render() {}
 
 	Vec3 WorldToCamera(Camera& cam,Vec3 ver);
 	Vec2 CameraToViewer(Camera& cam,Vec3 ver);
+	Vec2 WorldToViewer(Camera& cam, Vec3 ver);
+
+	void WorldToObject(D3Object& obj);
+
+	void RenderD3Model(SDL_Renderer* pRender,Camera& cam, D3Model& model);
+	void RenderD3Object(SDL_Renderer* pRender, Camera& cam, D3Object& obj);
+
+	void DrawPolygon(SDL_Renderer* pRender,Vec2* p,Color color,float b);
+
+	float Brightness(Vec3 nomalVec);
+	bool CullOff(Vec2 a,Vec2 b,Vec2 c);
 };

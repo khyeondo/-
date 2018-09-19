@@ -20,7 +20,11 @@ bool Game::init(const char * title, int xpos, int ypos, int width, int height, b
 		m_bRunning = false;
 		return false;
 	}
-
+	
+	//Surface ↔ Texture 
+	//Surface는 PC의 램에 올라가지만 Texture는 그래픽카드 메모리에 올라가기 때문에 더 빠르다.
+	//또한 Surface는 이미지에 대한 정보(크기, 픽셀등)를 담고 있는 구조체 이지만
+	//Texture는 단순히 그래픽 메모리 상의 주로를 가리키는 포인터이다.
 	SDL_Surface* pTempSurface = SDL_LoadBMP("assets/rider.bmp");
 	m_pTexture = SDL_CreateTextureFromSurface(m_pRenderer,
 		pTempSurface);
