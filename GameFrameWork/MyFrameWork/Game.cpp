@@ -7,17 +7,16 @@ Vec2 prePos = { 0,0 };
 
 bool Game::init(const char * title, int xpos, int ypos, 
 	int width, int height, bool fullscreen)
-{
+{	
 	if (SDL_Init(SDL_INIT_EVERYTHING) >= 0)
 	{
-
 		screenSizeW = width;
 		screenSizeH = height;
 
 		m_pWindow = SDL_CreateWindow("GameFrameWork",
 			SDL_WINDOWPOS_CENTERED,
 			SDL_WINDOWPOS_CENTERED,
-			screenSizeW, screenSizeH, SDL_WINDOW_SHOWN);
+			screenSizeW, screenSizeH, SDL_WINDOW_SHOWN && fullscreen);
 
 		if (m_pWindow != 0)
 		{
@@ -28,7 +27,12 @@ bool Game::init(const char * title, int xpos, int ypos,
 			return false;
 		}
 		m_bRunning = true;
+
+		//HWND handle = systemInfo.info.win.window;
+
+
 		return true;
+
 	}
 	else {
 		return false;
@@ -56,9 +60,9 @@ void Game::Start()
 void Game::HandleEvents()
 {
 	SDL_Event event;
-	Vec3 x = { 2,0,0 };
-	Vec3 y = { 0,2,0 };
-	Vec3 z = { 0,0,2 };
+	Vec3 x = { 5,0,0 };
+	Vec3 y = { 0,5,0 };
+	Vec3 z = { 0,0,5 };
 
 
 
@@ -113,10 +117,11 @@ void Game::HandleEvents()
 			}
 			break;
 		//case SDL_MOUSEMOTION:
-		//	cam->SetAngleX(cam->GetAngleX() - (event.motion.y - prePos.y)*0.003f);
+		//	cam->SetAngleX(cam->GetAngleX() + (event.motion.y - prePos.y)*0.003f);
 		//	cam->SetAngleY(cam->GetAngleY() + (event.motion.x - prePos.x)*0.003f);
 		//	prePos.x = event.motion.x;
 		//	prePos.y = event.motion.y;
+		//	break;
 		default:
 			break;
 		}
@@ -125,10 +130,12 @@ void Game::HandleEvents()
 
 void Game::Update()
 {
+	 
 }
 
 void Game::LateUpdate()
 {
+
 }
 
 void Game::Render()
@@ -153,8 +160,8 @@ void Game::Render()
 
 	for (int i = 0; i < 8; i++)
 	{
-		p[i] = Render3D::GetInst()->CameraToViewer(*cam,
-			Render3D::GetInst()->WorldToCamera(*cam, vertex[i]));
+		p[i] = D3Render::GetInst()->CameraToViewer(*cam,
+			D3Render::GetInst()->WorldToCamera(*cam, vertex[i]));
 	}
 	SDL_SetRenderDrawColor(m_pRenderer, 0, 0, 0, 255);
 	SDL_RenderDrawLine(m_pRenderer, p[0].x, p[0].y, p[1].x, p[1].y);
@@ -169,6 +176,7 @@ void Game::Render()
 	SDL_RenderDrawLine(m_pRenderer, p[4].x, p[4].y, p[7].x, p[7].y);
 	SDL_RenderDrawLine(m_pRenderer, p[5].x, p[5].y, p[7].x, p[7].y);
 	SDL_RenderDrawLine(m_pRenderer, p[6].x, p[6].y, p[7].x, p[7].y);
+
 	SDL_RenderPresent(m_pRenderer);
 }
 

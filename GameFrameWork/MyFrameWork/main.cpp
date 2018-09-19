@@ -1,6 +1,5 @@
 #include "Game.h"
 
-SDL_Event g_Event;
 
 int main(int argc, char* args[])
 {

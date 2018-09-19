@@ -19,17 +19,26 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="02.3DGraphics\01.3Define">
-      <UniqueIdentifier>{1d4927c9-56e3-4666-839b-54093b0525cf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.3DGraphics\03.Camera">
+    <Filter Include="02.3DGraphics\02.Camera">
       <UniqueIdentifier>{47c429d4-d219-42a8-8c18-248aa1556040}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02.3DGraphics\02.Render3D">
+    <Filter Include="02.3DGraphics\03.Vec3">
+      <UniqueIdentifier>{8b1b25b2-f1fc-4d2e-bfef-f445b6f17553}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.3DGraphics\04.Polygon">
+      <UniqueIdentifier>{b0fd7e4a-6483-4b33-990c-f326a622fc5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\SDL2_gfxPrimitives">
+      <UniqueIdentifier>{b2154320-079f-4021-a349-e45f56d2d83c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.3DGraphics\01.3DRender">
       <UniqueIdentifier>{9d7bd1b7-bb33-4de8-8e35-57d21ee531c7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02.3DGraphics\Vec3">
-      <UniqueIdentifier>{8b1b25b2-f1fc-4d2e-bfef-f445b6f17553}</UniqueIdentifier>
+    <Filter Include="02.3DGraphics\06.Cube">
+      <UniqueIdentifier>{a742841a-7530-4307-8519-a0a4c35cb7ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.3DObject">
+      <UniqueIdentifier>{450b5b8d-93d1-4381-a3b7-37862ab20dff}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -40,13 +49,25 @@
       <Filter>01.Game</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
-      <Filter>02.3DGraphics\03.Camera</Filter>
-    </ClCompile>
-    <ClCompile Include="Render3D.cpp">
-      <Filter>02.3DGraphics\02.Render3D</Filter>
+      <Filter>02.3DGraphics\02.Camera</Filter>
     </ClCompile>
     <ClCompile Include="Vec3.cpp">
-      <Filter>02.3DGraphics\Vec3</Filter>
+      <Filter>02.3DGraphics\03.Vec3</Filter>
+    </ClCompile>
+    <ClCompile Include="D3Render.cpp">
+      <Filter>02.3DGraphics\01.3DRender</Filter>
+    </ClCompile>
+    <ClCompile Include="Polygon.cpp">
+      <Filter>02.3DGraphics\04.Polygon</Filter>
+    </ClCompile>
+    <ClCompile Include="SDL2_gfxPrimitives.c">
+      <Filter>헤더 파일\SDL2_gfxPrimitives</Filter>
+    </ClCompile>
+    <ClCompile Include="SDL2_rotozoom.c">
+      <Filter>헤더 파일\SDL2_gfxPrimitives</Filter>
+    </ClCompile>
+    <ClCompile Include="Cube.cpp">
+      <Filter>02.3DGraphics\06.Cube</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -56,20 +77,32 @@
     <ClInclude Include="header.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="3Define.h">
-      <Filter>02.3DGraphics\01.3Define</Filter>
-    </ClInclude>
     <ClInclude Include="Camera.h">
-      <Filter>02.3DGraphics\03.Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="Render3D.h">
-      <Filter>02.3DGraphics\02.Render3D</Filter>
+      <Filter>02.3DGraphics\02.Camera</Filter>
     </ClInclude>
     <ClInclude Include="Define.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Vec3.h">
-      <Filter>02.3DGraphics\Vec3</Filter>
+      <Filter>02.3DGraphics\03.Vec3</Filter>
+    </ClInclude>
+    <ClInclude Include="D3Render.h">
+      <Filter>02.3DGraphics\01.3DRender</Filter>
+    </ClInclude>
+    <ClInclude Include="Polygon.h">
+      <Filter>02.3DGraphics\04.Polygon</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2_gfxPrimitives.h">
+      <Filter>헤더 파일\SDL2_gfxPrimitives</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2_rotozoom.h">
+      <Filter>헤더 파일\SDL2_gfxPrimitives</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2_gfxPrimitives_font.h">
+      <Filter>헤더 파일\SDL2_gfxPrimitives</Filter>
+    </ClInclude>
+    <ClInclude Include="Cube.h">
+      <Filter>02.3DGraphics\06.Cube</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

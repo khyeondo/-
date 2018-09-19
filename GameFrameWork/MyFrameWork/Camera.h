@@ -19,7 +19,7 @@ public:
 	}
 	~Camera() {}
 
-	Vec3 GetPos() const { return pos; }
+	Vec3 GetPos()  { return pos; }
 	float GetDist() { return dist; }
 	float GetAngleX() { return angleX; }
 	float GetAngleY() { return angleY; }	

@@ -124,18 +124,26 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Render3D.cpp" />
+    <ClCompile Include="D3Render.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="SDL2_gfxPrimitives.c" />
+    <ClCompile Include="SDL2_rotozoom.c" />
     <ClCompile Include="Vec3.cpp" />
+    <ClCompile Include="Polygon.cpp" />
+    <ClCompile Include="Cube.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="Render3D.h" />
-    <ClInclude Include="3Define.h" />
+    <ClInclude Include="D3Render.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Define.h" />
+    <ClInclude Include="SDL2_gfxPrimitives.h" />
+    <ClInclude Include="SDL2_gfxPrimitives_font.h" />
+    <ClInclude Include="SDL2_rotozoom.h" />
     <ClInclude Include="Vec3.h" />
+    <ClInclude Include="Polygon.h" />
+    <ClInclude Include="Cube.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

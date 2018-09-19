@@ -1,8 +1,8 @@
 #pragma once
 
 #include "header.h"
-#include "Render3D.h"
-
+#include "D3Render.h"
+#include "SDL2_gfxPrimitives.h"
 class Game
 {
 #pragma region Single
@@ -30,6 +30,7 @@ private:
 	int screenSizeW, screenSizeH;
 
 	Camera* cam;
+
 public:
 	bool init(const char * title, int xpos, int ypos, 
 		int width, int height, bool fullscreen);

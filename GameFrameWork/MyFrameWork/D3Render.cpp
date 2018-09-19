@@ -1,17 +1,17 @@
 
-#include "Render3D.h"
+#include "D3Render.h"
 
-Render3D* Render3D::m_pinst = 0;
+D3Render* D3Render::m_pinst = 0;
 
-Vec3 Render3D::WorldToCamera(Camera& cam,Vec3 ver)
+Vec3 D3Render::WorldToCamera(Camera& cam,Vec3 ver)
 {
 	Vec3 temp;
-	temp = (ver - cam.GetPos()).RotateX(cam.GetAngleX());
-	temp = temp.RotateY(cam.GetAngleY());
+	temp = (ver - cam.GetPos()).RotateY(cam.GetAngleY());
+	temp = temp.RotateX(cam.GetAngleX());
 	return temp;
 }
 
-Vec2 Render3D::CameraToViewer(Camera& cam,Vec3 ver)
+Vec2 D3Render::CameraToViewer(Camera& cam,Vec3 ver)
 {
 	Vec2 pos;
 	//float temp = (cam.y - ver.y);

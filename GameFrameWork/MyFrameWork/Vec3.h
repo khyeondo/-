@@ -1,10 +1,13 @@
 #pragma once
-#include <math.h>
+
+#include "header.h"
+
 struct Vec3
 {
 public:
 	float x, y, z;
 
+public:
 	Vec3 operator + (Vec3 vec)
 	{
 		Vec3 temp;
@@ -20,6 +23,20 @@ public:
 		temp.z = z - vec.z;
 		return temp;
 	}
+	Vec3 operator * (float f)
+	{
+		Vec3 temp;
+		temp.x = x * f;
+		temp.y = y * f;
+		temp.z = z * f;
+	}
+	Vec3 operator / (float f)
+	{
+		Vec3 temp;
+		temp.x = x / f;
+		temp.y = y / f;
+		temp.z = z / f;
+	}
 	void operator += (Vec3 vec) {
 		x = x + vec.x;
 		y = y + vec.y;
@@ -30,34 +47,34 @@ public:
 		y = y - vec.y;
 		z = z - vec.z;
 	}
-
-	//x축회전
-	Vec3 RotateX(float angle) {
-		Vec3 temp;
-		temp.x = x;
-		temp.y = y * cosf(angle) + z * sinf(angle);
-		temp.z = z * cosf(angle) - y * sinf(angle);
-
-		return temp;
+	void operator *= (float f)
+	{
+		x = x * f;
+		y = y * f;
+		z = z * f;
 	}
-	Vec3 RotateY(float angle)
+	void operator /= (float f)
+	{
+		x = x / f;
+		y = y / f;
+		z = z / f;
+	}
+
+	float Length();	
+	Vec3 Normalize();
+	
+	//축회전
+	Vec3 RotateX(float angle);
+	Vec3 RotateY(float angle);
+	Vec3 RotateZ(float angle);
+
+	//외적
+	static Vec3 Cross(Vec3 a, Vec3 b)
 	{
 		Vec3 temp;
-		temp.x = x * cosf(angle) + z * sinf(angle);
-		temp.y = y;
-		temp.z = z * cosf(angle) - x * sinf(angle);
-
-		return temp;
-	}
-	Vec3 RotateZ(float angle)
-	{
-		Vec3 temp;
-		temp.x = x * cosf(angle) + y * sinf(angle);
-		temp.y = y * cosf(angle) - x * sinf(angle);
-		temp.z = z;
-
+		temp.x = a.y * b.z - a.z * b.y;
+		temp.y = a.z * b.x - a.x * b.z;
+		temp.z = a.x * b.y - a.y * b.x;
 		return temp;
 	}
 };
-
-typedef Vec3 Vertex;

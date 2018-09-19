@@ -3,15 +3,15 @@
 #include "Camera.h"
 #include "header.h"
 
-class Render3D
+class D3Render
 {
 #pragma region Single
 private:
-	static Render3D * m_pinst;
+	static D3Render * m_pinst;
 public:
-	static Render3D * GetInst() {
+	static D3Render * GetInst() {
 		if (m_pinst == 0)
-			m_pinst = new Render3D();
+			m_pinst = new D3Render();
 		return m_pinst;
 	}
 	static void DeleteSingle() {
@@ -21,8 +21,8 @@ public:
 	}
 #pragma endregion
 public:
-	Render3D() {}
-	~Render3D() {}
+	D3Render() {}
+	~D3Render() {}
 
 	Vec3 WorldToCamera(Camera& cam,Vec3 ver);
 	Vec2 CameraToViewer(Camera& cam,Vec3 ver);
